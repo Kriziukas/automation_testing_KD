@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class QaPage extends BasePage {
@@ -24,7 +25,7 @@ public class QaPage extends BasePage {
 
     public ArrayList<String> putItemsIntoList() {
         ArrayList<String> itemsList = new ArrayList<>();
-        WebElement[] items = new WebElement[0];
+        List<WebElement> items = driver.findElements(By.xpath("//h3[contains(@class, 'product-title')]/a"));
         for (WebElement item : items) {
             itemsList.add(item.getText());
         }
